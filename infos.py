@@ -33,51 +33,53 @@ def porcent(index,max):
     return porcent
 
 def createDownloading(filename,totalBits,currentBits,speed,time,tid=''):
-    msg = f'#Descargando \n'
-    msg += 'Nombre del archivo: '+filename+'\n'
-    msg += 'Porcentaje: '+str(porcent(currentBits,totalBits))+'%\n'
-    msg += 'Total: '+sizeof_fmt(totalBits)+' | Descargado: '+sizeof_fmt(currentBits)+'\n'
-    msg += 'Velocidad: '+sizeof_fmt(speed)+'/s \n'
-    msg += 'Tiempo restante: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
+    msg = f'📥Descargando... \n'
+    msg += '🖊️Nombre del archivo: '+filename+'\n'
+    msg += '🎰Porcentaje: '+str(porcent(currentBits,totalBits))+'%\n'
+    msg += '📦Total: '+sizeof_fmt(totalBits)+' | Descargado: '+sizeof_fmt(currentBits)+'\n'
+    msg += '⚡Velocidad: '+sizeof_fmt(speed)+'/s \n'
+    msg += '⏳Tiempo restante: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
 
-    msg = '#Descargando\n'
-    msg += 'Nombre del archivo: '+filename+'\n'
-    msg += 'Porcentaje: '+str(porcent(currentBits,totalBits))+'%\n'
-    msg += 'Total: '+sizeof_fmt(totalBits)+' | Descargado: '+sizeof_fmt(currentBits)+'\n'
-    msg += 'Velovidad: '+sizeof_fmt(speed)+'/s \n'
-    msg += 'Tiempo restante: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
+    msg = '📥Descargando...\n'
+    msg += '🖊️Nombre del archivo: '+filename+'\n'
+    msg += '🎰Porcentaje: '+str(porcent(currentBits,totalBits))+'%\n'
+    msg += '📦Total: '+sizeof_fmt(totalBits)+' | Descargado: '+sizeof_fmt(currentBits)+'\n'
+    msg += '⚡Velovidad: '+sizeof_fmt(speed)+'/s \n'
+    msg += '⏳Tiempo restante: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
 
     if tid!='':
         msg+= '/cancel_' + tid
     return msg
 def createUploading(filename,totalBits,currentBits,speed,time,originalname=''):
-    msg = '#Subiendo..\n'
+    msg = '📤Subiendo...\n'
     if originalname!='':
         msg = str(msg).replace(filename,originalname)
-        msg+= 'Nombre:' + str(filename)+'\n'
-    msg+= 'Tamaño Total: ' + str(sizeof_fmt(totalBits))+'| Subido: ' + str(sizeof_fmt(currentBits))+'\n'
-    msg+= 'Velocidad: ' + str(sizeof_fmt(speed))+'/s\n'
-    msg+= 'Tiempo restante: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
+        msg+= '🖊️Nombre:' + str(filename)+'\n'
+    msg+= '💾Tamaño Total: ' + str(sizeof_fmt(totalBits))+'| Subido: ' + str(sizeof_fmt(currentBits))+'\n'
+    msg+= '⚡Velocidad: ' + str(sizeof_fmt(speed))+'/s\n'
+    msg+= '🧮Tiempo restante: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
 
-    msg = '#Upload..\n'
+    msg = '📤Subiendo...\n'
     if originalname!='':
         msg = str(msg).replace(filename,originalname)
-        msg+= 'Nombre:' + str(filename)+'\n'
-    msg+= 'Tamaño Total: ' + str(sizeof_fmt(totalBits))+'| Subido: ' + str(sizeof_fmt(currentBits))+'\n'
-    msg+= 'Velocidad: ' + str(sizeof_fmt(speed))+'/s\n'
-    msg+= 'Tiempo restante: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
+        msg+= '🖊️Nombre:' + str(filename)+'\n'
+    msg+= '💾Tamaño Total: ' + str(sizeof_fmt(totalBits))+'| Subido: ' + str(sizeof_fmt(currentBits))+'\n'
+    msg+= '⚡Velocidad: ' + str(sizeof_fmt(speed))+'/s\n'
+    msg+= '🧮Tiempo restante: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
 
     return msg
 def createCompresing(filename,filesize,splitsize):
-    msg = '#Comprimiendo... \n\n'
-    msg+= 'Tamaño Partes: ' + str(sizeof_fmt(splitsize))+'\n'
-    msg+= 'Cantidad Partes: ' + str(round(int(filesize/splitsize)+1,1))+'\n\n'
+    msg = '🗜️Comprimiendo... \n\n'
+    msg+= '📏Tamaño Partes: ' + str(sizeof_fmt(splitsize))+'\n'
+    msg+= '📚Cantidad Partes: ' + str(round(int(filesize/splitsize)+1,1))+'\n\n'
     return msg
 def createFinishUploading(filename,filesize,split_size,current,count,findex):
-    msg = '✅PROCESO FINALIZADO✅\n'
-    msg+= 'Nombre: ' + str(filename)+'\n'
-    msg+= 'Tamaño Total: ' + str(sizeof_fmt(filesize))+'\n'
-    msg+= 'Partes Subidas: ' + str(current) + '/' + str(count) +'\n'
+    msg = '✅Proceso Finalizado✅\n\n'
+    msg+= '🖊️Nombre: ' + str(filename)+'\n'
+    msg+= '💾Tamaño Total: ' + str(sizeof_fmt(filesize))+'\n'
+    msg+= '📏Tamaño Partes: ' + str(sizeof_fmt(split_size))+'\n'
+    msg+= '📚Partes Subidas: ' + str(current) + '/' + str(count) +'\n\n'
+    msg+= '🗑Borrar Archivo: ' + '/del_'+str(findex)
     return msg
 
 def createFileMsg(filename,files):
@@ -108,7 +110,7 @@ def createFilesMsg(evfiles):
     return msg
 def createStat(username,userdata,isadmin):
     from pyobigram.utils import sizeof_fmt
-    msg = '#Panel_de_Usuario\n\n'
+    msg = '⚙️Panel de Usuario⚙️\n\n'
     msg+= 'Nombre de usuario : @' + str(username)+'\n'
     msg+= 'User: ' + str(userdata['moodle_user'])+'\n'
     msg+= 'Password: ' + str(userdata['moodle_password']) +'\n'
