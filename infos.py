@@ -85,15 +85,17 @@ def createFinishUploading(filename,filesize,split_size,current,count,findex):
 def createFileMsg(filename,files):
     import urllib
     if len(files)>0:
-        msg= '<b>#LINK:</b>\n'
+        msg= '<b>🔗𝐄𝐧𝐥𝐚𝐜𝐞𝐬 𝐝𝐞 𝐝𝐞𝐬𝐜𝐚𝐫𝐠𝐚:</b>\n'
         for f in files:
             url = urllib.parse.unquote(f['directurl'],encoding='utf-8', errors='replace')
-            msg+= "<a href='"+url+"'>"+f['name']+'</a>\n'
+            #msg+= '<a href="'+f['url']+'">🔗' + f['name'] + '🔗</a>'
+            msg+= "<a href='"+url+"'>➾"+f['name']+'</a>\n'
+        msg += "\n⚡️¡Toque los enlaces para descargarlos o descargue desde los TXT!⚡️\n\n"
         return msg
     return ''
 
 def createFilesMsg(evfiles):
-    msg = '#Archivos ('+str(len(evfiles))+')\n\n'
+    msg = '➣ Archivos ('+str(len(evfiles))+')\n\n'
     i = 0
     for f in evfiles:
             try:
