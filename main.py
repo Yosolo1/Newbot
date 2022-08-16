@@ -644,6 +644,7 @@ def onmessage(update,bot:ObigramClient):
                 bot.sendMessage(update.message.chat.id, "Archivo eliminado con exito...")
             else: bot.sendMessage(update.message.chat.i, "No se pudo loguear")            
            except: bot.sendMessage(update.message.chat.id, "No se pudo eliminar el archivo")
+       
         elif 'http' in msgText:
             url = msgText
             ddl(update,bot,message,url,file_name='',thread=thread,jdb=jdb)
@@ -663,7 +664,7 @@ def onmessage(update,bot:ObigramClient):
             #    import asyncio
             #    asyncio.run(tlmedia.download_media(api_id,api_hash,bot_token,chat_id,message_id))
             #    return
-            bot.editMessageText(message,'😵No se pudo procesar😵')
+            bot.editMessageText(message,'⚠️Error analizando')
     except Exception as ex:
            print(str(ex))
            bot.sendMessage(update.message.chat.id,str(ex))
@@ -681,7 +682,6 @@ def cancel_task(update,bot:ObigramClient):
         print(str(ex))
     return
     pass
-
 def maketxt(update,bot:ObigramClient):
     data = update.message.reply_markup.inline_keyboard
     urls = []
