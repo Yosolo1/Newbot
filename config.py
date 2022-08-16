@@ -1,4 +1,4 @@
-admin = 'rockstar984'
-bot_token = "5578817560:AAFthnpCr1QC0_wlAObLZmubDjDDdyPwQII"
+admin = 'Luis_Daniel_Diaz'
+bot_token = "5387704478:AAHK1J4Ujok2LhchwwTBIIwC10yUOfvALZc"
 
-groupid= -1001728956224
+groupid= -1001511554079
