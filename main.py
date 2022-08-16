@@ -644,14 +644,26 @@ def onmessage(update,bot:ObigramClient):
                 bot.sendMessage(update.message.chat.id, "Archivo eliminado con exito...")
             else: bot.sendMessage(update.message.chat.i, "No se pudo loguear")            
            except: bot.sendMessage(update.message.chat.id, "No se pudo eliminar el archivo")
-        elif '/download' in msgText:
-           try:
-            getUser = user_info
-            rename = getUser['rename'] 
-            url = msgText.split(" ")[1]
-            ddl(update,bot,message,url,file_name='',thread=thread,jdb=jdb,username=username)
-           except Exception as ex:
-            bot.editMessageText(message,"Error al intentar bajar el archivo"+str(ex))
+        elif 'http' in msgText:
+            url = msgText
+            ddl(update,bot,message,url,file_name='',thread=thread,jdb=jdb)
+        else:
+            #if update:
+            #    api_id = os.environ.get('api_id')
+            #    api_hash = os.environ.get('api_hash')
+            #    bot_token = os.environ.get('bot_token')
+            #    
+                # set in debug
+            #    api_id = 7386053
+            #    api_hash = '78d1c032f3aa546ff5176d9ff0e7f341'
+            #    bot_token = '5124841893:AAH30p6ljtIzi2oPlaZwBmCfWQ1KelC6KUg'
+
+            #    chat_id = int(update.message.chat.id)
+            #    message_id = int(update.message.message_id)
+            #    import asyncio
+            #    asyncio.run(tlmedia.download_media(api_id,api_hash,bot_token,chat_id,message_id))
+            #    return
+            bot.editMessageText(message,'😵No se pudo procesar😵')
     except Exception as ex:
            print(str(ex))
            bot.sendMessage(update.message.chat.id,str(ex))
