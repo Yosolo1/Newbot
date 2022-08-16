@@ -264,7 +264,7 @@ def onmessage(update,bot:ObigramClient):
         else:
             mensaje = "No tienes acceso"
             reply_markup = inlineKeyboardMarkup(
-                r1=[inlineKeyboardButton('Admin',url='https://t.me/rockstar984')]
+                r1=[inlineKeyboardButton('Admin',url='https://t.me/Luis_Daniel_Diaz')]
             )
                 
             bot.sendMessage(update.message.chat.id,mensaje,reply_markup=reply_markup)
@@ -523,7 +523,7 @@ def onmessage(update,bot:ObigramClient):
             start_msg = f'Sesion Iniciada @{username}'
             reply_markup = inlineKeyboardMarkup(
                 r1=[inlineKeyboardButton('Github', url="https://github.com/RokstarDevrloperCuba"),
-                    inlineKeyboardButton('Admin', url='https://t.me/rockstar984')])
+                    inlineKeyboardButton('Admin', url='https://t.me/Luis_Daniel_Diaz')])
             bot.editMessageText(message,start_msg,parse_mode='html',reply_markup=reply_markup)
         if '/token' in msgText:
             message2 = bot.editMessageText(message,'Obteniendo Token...')
