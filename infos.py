@@ -37,35 +37,35 @@ def createDownloading(filename,totalBits,currentBits,speed,time,tid=''):
     msg += 'Nombre del archivo: '+filename+'\n'
     msg += 'Porcentaje: '+str(porcent(currentBits,totalBits))+'%\n'
     msg += 'Total: '+sizeof_fmt(totalBits)+' | Descargado: '+sizeof_fmt(currentBits)+'\n'
-    msg += 'Speed: '+sizeof_fmt(speed)+'/s \n'
-    msg += 'ETA: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
+    msg += 'Velocidad: '+sizeof_fmt(speed)+'/s \n'
+    msg += 'Tiempo restante: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
 
     msg = '#Descargando\n'
     msg += 'Nombre del archivo: '+filename+'\n'
     msg += 'Porcentaje: '+str(porcent(currentBits,totalBits))+'%\n'
     msg += 'Total: '+sizeof_fmt(totalBits)+' | Descargado: '+sizeof_fmt(currentBits)+'\n'
-    msg += 'Speed: '+sizeof_fmt(speed)+'/s \n'
-    msg += 'ETA: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
+    msg += 'Velovidad: '+sizeof_fmt(speed)+'/s \n'
+    msg += 'Tiempo restante: '+str(datetime.timedelta(seconds=int(time)))+'s\n\n'
 
     if tid!='':
         msg+= '/cancel_' + tid
     return msg
 def createUploading(filename,totalBits,currentBits,speed,time,originalname=''):
-    msg = '#Upload..\n'
+    msg = '#Subiendo..\n'
     if originalname!='':
         msg = str(msg).replace(filename,originalname)
         msg+= 'Nombre:' + str(filename)+'\n'
     msg+= 'Tamaño Total: ' + str(sizeof_fmt(totalBits))+'| Subido: ' + str(sizeof_fmt(currentBits))+'\n'
-    msg+= 'Speed: ' + str(sizeof_fmt(speed))+'/s\n'
-    msg+= 'ETA: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
+    msg+= 'Velocidad: ' + str(sizeof_fmt(speed))+'/s\n'
+    msg+= 'Tiempo restante: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
 
     msg = '#Upload..\n'
     if originalname!='':
         msg = str(msg).replace(filename,originalname)
         msg+= 'Nombre:' + str(filename)+'\n'
     msg+= 'Tamaño Total: ' + str(sizeof_fmt(totalBits))+'| Subido: ' + str(sizeof_fmt(currentBits))+'\n'
-    msg+= 'Speed: ' + str(sizeof_fmt(speed))+'/s\n'
-    msg+= 'ETA: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
+    msg+= 'Velocidad: ' + str(sizeof_fmt(speed))+'/s\n'
+    msg+= 'Tiempo restante: ' + str(datetime.timedelta(seconds=int(time))) +'\n'
 
     return msg
 def createCompresing(filename,filesize,splitsize):
@@ -74,7 +74,7 @@ def createCompresing(filename,filesize,splitsize):
     msg+= 'Cantidad Partes: ' + str(round(int(filesize/splitsize)+1,1))+'\n\n'
     return msg
 def createFinishUploading(filename,filesize,split_size,current,count,findex):
-    msg = '#Listo\n'
+    msg = '✅PROCESO FINALIZADO✅\n'
     msg+= 'Nombre: ' + str(filename)+'\n'
     msg+= 'Tamaño Total: ' + str(sizeof_fmt(filesize))+'\n'
     msg+= 'Partes Subidas: ' + str(current) + '/' + str(count) +'\n'
